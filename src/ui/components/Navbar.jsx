@@ -15,12 +15,12 @@ export const Navbar = () => {
         });
     }
 
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user') ?? {})
-        if( Object.keys(user).length > 0 ){
-            return setUsername( `${ user?.firstName } ${user?.lastName}` )
-        }
-    }, [username])
+    // useEffect(() => {
+    //     const user = JSON.parse(localStorage.getItem('user') ?? {})
+    //     if( Object.keys(user).length > 0 ){
+    //         return setUsername( `${ user?.firstName } ${user?.lastName}` )
+    //     }
+    // }, [username])
     
 
     return (
