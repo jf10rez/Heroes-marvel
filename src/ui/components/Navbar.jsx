@@ -16,8 +16,10 @@ export const Navbar = () => {
     }
 
     useEffect(() => {
-        const { firstName, lastName } = JSON.parse(localStorage.getItem('user'))
-        setUsername( `${ firstName } ${lastName}` )
+        const user = JSON.parse(localStorage.getItem('user') ?? {})
+        if( Object.keys(user).length > 0 ){
+            return setUsername( `${ user?.firstName } ${user?.lastName}` )
+        }
     }, [username])
     
 
