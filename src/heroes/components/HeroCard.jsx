@@ -9,7 +9,7 @@ export const HeroCard = ({
 
     const { path, extension } = thumbnail
     return (
-        <div className="col animate__animated animate__fadeIn">
+        <div className="col-md-4 col-xs-12 animate__animated animate__fadeIn">
             <div className="card">
 
                 <div className="row no-gutters">

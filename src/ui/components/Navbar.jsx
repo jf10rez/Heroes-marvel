@@ -1,60 +1,50 @@
-import { useContext } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/authContext';
-
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const { setUser } = useContext(AuthContext);
 
-    const { setUser } = useContext(AuthContext)
+  const onLogout = () => {
+    setUser(null);
+    navigate("/login", {
+      replace: true,
+    });
+  };
 
-    const onLogout = () => {
-        setUser(null)
-        navigate('/login', {
-            replace: true
-        });
-    }
-    
-
-    return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
-            
-            <Link 
-                className="navbar-brand" 
-                to="/"
-            >
-                Héroes
-            </Link>
-
-            <div className="navbar-collapse">
-                <div className="navbar-nav">
-
-                    <NavLink 
-                        className={ ({isActive}) => `nav-item nav-link  ${ isActive ? 'active':'' }` }
-                        to="/marvel"
-                    >
-                        Marvel
-                    </NavLink>
-                </div>
-            </div>
-
-            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
-                <ul className="navbar-nav ml-auto">
-                   
-                    <span className="nav-item nav-link text-primary">
-                        Jhonatan Florez
-                    </span>
-
-                    <button
-                        className="nav-item nav-link btn"
-                        onClick={ onLogout }
-                    >
-                        Cerrar sesión
-                    </button>
-
-                </ul>
-            </div>
-        </nav>
-    )
-}
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+      <Link className="navbar-brand" to="/">
+        Jhonatan Florez
+      </Link>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div className="navbar-nav">
+          <NavLink
+            className={({ isActive }) =>
+              `nav-item nav-link align-right  ${isActive ? "active" : ""}`
+            }
+            to="/marvel"
+          >
+            Marvel
+          </NavLink>
+          <button className="nav-item nav-link btn align-right" onClick={onLogout}>
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+};
