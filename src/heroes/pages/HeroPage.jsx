@@ -19,7 +19,7 @@ export const HeroPage = () => {
   useEffect(() => {
 
     fetch(
-      `http://gateway.marvel.com/v1/public/characters/${id}?ts=${
+      `https://gateway.marvel.com/v1/public/characters/${id}?ts=${
         import.meta.env.VITE_TS
       }&apikey=${import.meta.env.VITE_API_KEY}&hash=${hash}`
     )
@@ -41,7 +41,7 @@ export const HeroPage = () => {
 
   useEffect(() => {
     fetch(
-      `http://gateway.marvel.com/v1/public/characters/${id}/comics?ts=${
+      `https://gateway.marvel.com/v1/public/characters/${id}/comics?ts=${
         import.meta.env.VITE_TS
       }&apikey=${
         import.meta.env.VITE_API_KEY

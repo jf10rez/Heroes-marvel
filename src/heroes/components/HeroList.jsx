@@ -11,7 +11,7 @@ export const HeroList = () => {
   useEffect(() => {
     const hash = createHash();
     fetch(
-      `http://gateway.marvel.com/v1/public/characters?ts=${
+      `https://gateway.marvel.com/v1/public/characters?ts=${
         import.meta.env.VITE_TS
       }&apikey=${import.meta.env.VITE_API_KEY}&hash=${hash}&limit=${counter}`
     )
