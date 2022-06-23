@@ -11,6 +11,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/authContext';
 
 const theme = createTheme();
 
@@ -22,6 +24,8 @@ export const LoginPage = () => {
     email: 'jflorezlondono@hotmail.com',
     password: 'admin123'
   }
+
+  const { setUser } = useContext(AuthContext)
 
   const { firstName, lastName } = userLog
 
@@ -45,9 +49,8 @@ export const LoginPage = () => {
         text: 'Usuario o contraseña incorrecta!'
       })
     }
-
-    //TODO: LOGIN
-    localStorage.setItem( 'user', JSON.stringify({firstName, lastName}) )
+    
+    setUser( { firstName, lastName } )
     navigate('/', {
       replace: true
     });

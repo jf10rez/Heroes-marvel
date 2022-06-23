@@ -1,27 +1,20 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/authContext';
 
 
 export const Navbar = () => {
 
     const navigate = useNavigate();
 
-    const [username, setUsername] = useState('')
+    const { setUser } = useContext(AuthContext)
 
     const onLogout = () => {
-        localStorage.clear('user')
+        setUser(null)
         navigate('/login', {
             replace: true
         });
     }
-
-    // useEffect(() => {
-    //     const user = JSON.parse(localStorage.getItem('user') ?? {})
-    //     console.log(localStorage.getItem('user'))
-    //     if( Object.keys(user).length > 0 ){
-    //         return setUsername( `${ user?.firstName } ${user?.lastName}` )
-    //     }
-    // }, [username])
     
 
     return (
