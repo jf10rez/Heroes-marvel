@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 
@@ -17,6 +17,7 @@ export const Navbar = () => {
 
     // useEffect(() => {
     //     const user = JSON.parse(localStorage.getItem('user') ?? {})
+    //     console.log(localStorage.getItem('user'))
     //     if( Object.keys(user).length > 0 ){
     //         return setUsername( `${ user?.firstName } ${user?.lastName}` )
     //     }
@@ -49,7 +50,7 @@ export const Navbar = () => {
                 <ul className="navbar-nav ml-auto">
                    
                     <span className="nav-item nav-link text-primary">
-                        { username }
+                        Jhonatan Florez
                     </span>
 
                     <button
